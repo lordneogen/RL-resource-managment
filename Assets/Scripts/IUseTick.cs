@@ -1,10 +1,16 @@
-﻿public interface IUseTick
+﻿
+using System;
+
+public interface IUseTick
     {
-        public void Use();
-        public void SetBatteryIn(float power);
+        public void Tick_activation();
+        public void The_generator_gives_energy_in_size(float power);
 
-        public int Type();
-        public float GetBatteryOut();
+        public int Get_type();
+        public float The_building_consumes_energy_in_the_amount();
 
-        public bool IsNeed();
+        public bool Is_need();
+
+        public bool Is_active();
+        public void Set_hour(int hour);
     }

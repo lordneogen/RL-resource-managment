@@ -3567,6 +3567,112 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d91735d2305543afb6af5bfbc1cc328, type: 3}
+--- !u!1 &389766380
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 389766383}
+  - component: {fileID: 389766382}
+  - component: {fileID: 389766381}
+  - component: {fileID: 389766384}
+  m_Layer: 0
+  m_Name: TrainTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &389766381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389766380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea5f8184ec4b4cc297484d56bd6a9999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 100
+  hour_start: 0
+  hour_end: 100
+  hour: 0
+  builds: []
+  Energy_issued: 300
+  Energy_issued_max: 300
+  Energy_AI_max: 300
+  maxObservations: 10
+  train: 0
+  trainObject: {fileID: 961420692}
+  trainCopyObject: {fileID: 0}
+  parentTrain: {fileID: 389766380}
+--- !u!114 &389766382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389766380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 65
+    NumStackedVectorObservations: 10
+    m_ActionSpec:
+      m_NumContinuousActions: 30
+      BranchSizes: 
+    VectorActionSize: 1e000000
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 1
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 1
+  m_BehaviorType: 0
+  m_BehaviorName: Test_main
+  TeamId: 4
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
+--- !u!4 &389766383
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389766380}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 962.0344, y: 458.172, z: -2.3420398}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 498559200}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &389766384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389766380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DecisionPeriod: 20
+  TakeActionsBetweenDecisions: 1
 --- !u!4 &392117558 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4993245208122112211, guid: 6ea7e3350c271844a991358d93b707fd,
@@ -4221,6 +4327,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 389766383}
   - {fileID: 1096018316}
   - {fileID: 1650529274}
   - {fileID: 1988081909}
@@ -4593,7 +4700,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.6970215, y: -298}
+  m_AnchoredPosition: {x: -1.6972656, y: -298}
   m_SizeDelta: {x: 900, y: 600}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &595683155
@@ -4706,7 +4813,7 @@ MonoBehaviour:
     type: 3}
   housePrefab3x2: {fileID: 751644456098863942, guid: e005cfd397dbf4465a8f941b49f3a083,
     type: 3}
-  housePrefab3x3: {fileID: 751644456098863942, guid: e005cfd397dbf4465a8f941b49f3a083,
+  housePrefab3x3: {fileID: 7758503601682126534, guid: c38d71443d78ec143a92c1eb7f485d0e,
     type: 3}
   roadPrefab: {fileID: 4993245208122112210, guid: d136c1d8cbbaa4203a4b8e20dc8374ca,
     type: 3}
@@ -5906,7 +6013,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &753577121
 Transform:
   m_ObjectHideFlags: 0
@@ -7215,6 +7322,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1615649103}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &961420692
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 961420693}
+  m_Layer: 0
+  m_Name: TrainGameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &961420693
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961420692}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 962.0344, y: 458.172, z: -2.3420398}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &963194227 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 6969825387636771139, guid: 33820794a62195642a992424d76a14a0,
@@ -8248,16 +8386,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85d5f70e0314a8587742f2f42185125, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  batteryRes: 100
-  currBattery: 100
-  tickTime: 30
-  tickCount: 0
-  houre: 0
+  Energy_issued: 100
+  Energy_current: 100
+  Tick_in_houre: 10
+  Tick_count: 0
+  Houre: 0
   buildsSize: 0
-  cityGenerator: {fileID: 0}
+  cityGenerator: {fileID: 620424075}
   windowGraph: {fileID: 1130240606}
   windowGraph_Bank: {fileID: 595683155}
-  StaticFloatHouse: 3
+  StaticEnergyFloatHouse: 0
+  train: 0
 --- !u!1001 &1106603154
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9813,7 +9952,7 @@ PrefabInstance:
     - target: {fileID: 2625195054620616135, guid: 59ac1c2c8ba44b94e983e341d9da166c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 137.61798
+      value: 137.61816
       objectReference: {fileID: 0}
     - target: {fileID: 2625195054620616136, guid: 59ac1c2c8ba44b94e983e341d9da166c,
         type: 3}
@@ -9919,12 +10058,12 @@ PrefabInstance:
     - target: {fileID: 3919964746387686133, guid: 59ac1c2c8ba44b94e983e341d9da166c,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 137.61798
+      value: 137.61816
       objectReference: {fileID: 0}
     - target: {fileID: 3919964746387686133, guid: 59ac1c2c8ba44b94e983e341d9da166c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 76.18997
+      value: 76.18994
       objectReference: {fileID: 0}
     - target: {fileID: 3919964746387686138, guid: 59ac1c2c8ba44b94e983e341d9da166c,
         type: 3}
@@ -17755,3 +17894,4 @@ SceneRoots:
   - {fileID: 980124408}
   - {fileID: 335570698}
   - {fileID: 753577121}
+  - {fileID: 961420693}

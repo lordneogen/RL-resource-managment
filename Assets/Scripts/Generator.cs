@@ -13,56 +13,64 @@ using UnityEngine.Serialization;
 
 public class Generator:MonoBehaviour,IUseTick
 {
-    private static Generator instance;
-    public float batteryRes=100f;
+    private static Generator _instance;
+    public float Energy_issued=100f;
     [SerializeField]
-    private float currBattery=100f;
-    public int tickTime=10;
+    private float Energy_current=100f;
+    public int Tick_in_houre=10;
     [HideInInspector]
-    public int tickCount=0;
-    [FormerlySerializedAs("day")] public int houre = 0;
-    public List<IUseTick> builds = new List<IUseTick>();
+    public int Tick_count=0;
+    public int Houre = 0;
+    public List<IUseTick> Builds = new List<IUseTick>();
     [SerializeField]
     private int buildsSize;
     public CityGenerator cityGenerator;
     public Window_Graph windowGraph;
     public Window_Graph_Bank windowGraph_Bank;
-    public float StaticFloatHouse;
+    public float StaticEnergyFloatHouse;
+    public bool train;
     public static Generator Instance
     {
+        
+        // Time.timeScale = 0.01f;
         get
         {
             // Если экземпляр еще не создан, создаем его
-            if (instance == null)
+            if (_instance == null)
             {
-                instance = new Generator();
+                _instance = new Generator();
             }
-            return instance;
+            return _instance;
         }
-        set { instance = value; }
+        set { _instance = value; }
     }
 
     private void Update()
     {
-        tickCount++;
-        if (tickCount == tickTime)
+        Tick_count++;
+        if (Tick_count == Tick_in_houre)
         {
-            houre++;
-            buildsSize = 0;
-            currBattery = batteryRes;
-            for (int i = 0; i < builds.Count; i++)
+
+            if (!train)
             {
-                if (builds[i].IsNeed())
+                Houre++;
+                buildsSize = 0;
+                Energy_current = Energy_issued;
+                for (int i = 0; i < Builds.Count; i++)
                 {
-                    currBattery -= StaticFloatHouse;
-                    builds[i].SetBatteryIn(StaticFloatHouse);
-                    buildsSize++;
+                    if (Builds[i].Is_need())
+                    {
+                        Energy_current -= StaticEnergyFloatHouse;
+                        Builds[i].The_generator_gives_energy_in_size(StaticEnergyFloatHouse);
+                        buildsSize++;
+                    }
                 }
-            }
-            tickCount = 0;
-            for (int i = 0; i < builds.Count; i++)
-            {
-                builds[i].Use();
+
+                Tick_count = 0;
+                for (int i = 0; i < Builds.Count; i++)
+                {
+                    Builds[i].Tick_activation();
+                }
             }
         }
     }
@@ -70,29 +78,39 @@ public class Generator:MonoBehaviour,IUseTick
     private void Awake()
     {
         Generator.Instance = this;
-        builds.Add(this);
+        Builds.Add(this);
     }
 
-    public void Use()
+    public void Tick_activation()
     {
-        tickCount++;
+        Tick_count++;
     }
-    public void SetBatteryIn(float batteryOut)
+    public void The_generator_gives_energy_in_size(float batteryOut)
     {
         return;
     }
 
-    public float GetBatteryOut()
+    public float The_building_consumes_energy_in_the_amount()
     {
         return 0f;
     }
 
-    public bool IsNeed()
+    public bool Is_need()
     {
         return false;
     }
 
-    public int Type()
+    public bool Is_active()
+    {
+        return true;
+    }
+
+    public void Set_hour(int hour)
+    {
+        hour = hour;
+    }
+
+    public int Get_type()
     {
         return 0;
     }

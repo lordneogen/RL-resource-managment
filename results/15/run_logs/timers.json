@@ -1,0 +1,42 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1732008891",
+        "python_version": "3.10.12 (main, Sep 11 2024, 15:47:36) [GCC 11.4.0]",
+        "command_line_arguments": "/home/ramzes/.local/bin/mlagents-learn --run-id=15 --resume",
+        "mlagents_version": "1.1.0",
+        "mlagents_envs_version": "1.1.0",
+        "communication_protocol_version": "1.5.0",
+        "pytorch_version": "2.5.1+cu124",
+        "numpy_version": "1.23.5",
+        "end_time_seconds": "1732008996"
+    },
+    "total": 104.9765628770001,
+    "count": 1,
+    "self": 0.02311268899939023,
+    "children": {
+        "run_training.setup": {
+            "total": 0.07623100300043006,
+            "count": 1,
+            "self": 0.07623100300043006
+        },
+        "TrainerController.start_learning": {
+            "total": 104.87721918500029,
+            "count": 1,
+            "self": 0.002773089001493645,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 104.87365705999946,
+                    "count": 1,
+                    "self": 104.87365705999946
+                },
+                "TrainerController._save_models": {
+                    "total": 0.0007890359993325546,
+                    "count": 1,
+                    "self": 0.0007890359993325546
+                }
+            }
+        }
+    }
+}

@@ -530,12 +530,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   On: 1
-  bankbattery: 100
-  bankbatteryMax: 100
-  batteryIn: 0
-  batteryOut: 0
-  type: House
-  timebatteryuse: []
+  Electricity_storage_capacity: 0
+  Electricity_storage_capacity_MAX: 0
+  Input_electricity: 0
+  Electricity_consumed: 0
+  Type: Office
+  Electricity_usage_relative_to_time: []
+  Electricity_storage_usage_relative_to_time: []
+  train: 0
   EnableLook: {fileID: 3391542849757357454}
   DisableLook: {fileID: 5731092776418234974}
 --- !u!114 &2391750111859773054

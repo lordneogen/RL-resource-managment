@@ -159,6 +159,17 @@ public class CityGenerator : MonoBehaviour
         }
     }
 
+    public void ResetGrid()
+    {
+        foreach (var build in buildings)
+        {
+            Destroy(build);
+        }
+        buildings.Clear();
+        buildings=new List<GameObject>();
+        DrawGrid();
+    }
+
     // Добавление нового дома рядом с дорогой
     public void AddNewHouseNearRoad()
     {

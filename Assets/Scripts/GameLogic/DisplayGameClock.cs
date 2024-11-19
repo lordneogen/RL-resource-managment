@@ -30,31 +30,41 @@ namespace CityBuilder
 
         private void Start()
         {
-            Generator.Instance.builds.Add(this);
+            Generator.Instance.Builds.Add(this);
         }
 
-        public void Use()
+        public void Tick_activation()
         {
             hour++;
             labelTimeOfDay.text = "Day: " + (hour / 24).ToString() + ", Hour: " + (hour % 24).ToString();
         }
 
-        public float GetBatteryOut()
+        public float The_building_consumes_energy_in_the_amount()
         {
             return 0f;
         }
 
-        public void SetBatteryIn(float power)
+        public void The_generator_gives_energy_in_size(float power)
         {
             return;
         }
 
-        public bool IsNeed()
+        public bool Is_need()
         {
             return false;
         }
 
-        public int Type()
+        public bool Is_active()
+        {
+            return true;
+        }
+
+        public void Set_hour(int hour)
+        {
+            this.hour=hour;
+        }
+
+        public int Get_type()
         {
             return 0;
         }
