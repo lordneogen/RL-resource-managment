@@ -1,0 +1,27 @@
+behaviors:
+  AgentWithGenerator:
+    trainer_type: ppo
+    hyperparameters:
+      batch_size: 4096  # Увеличено для более интенсивного использования ресурсов
+      buffer_size: 16384  # Значительно больше, чтобы держать больше данных для обучения
+      learning_rate: 3.0  # Более низкое значение для стабильного обучения
+      beta: 5.0  # Более сильная регуляризация
+      epsilon: 0.1  # Более агрессивный поиск оптимального действия
+      lambd: 0.95
+      num_epoch: 20  # Увеличено для более тщательной обработки данных
+      shared_critic: False
+    checkpoint_interval: 500000
+    network_settings:
+      normalize: False
+      hidden_units: 1024  # Увеличено для более сложной архитектуры
+      num_layers: 10  # Больше слоев для увеличения вычислительных затрат
+      vis_encode_type: resnet  # Более сложный тип кодировщика
+    reward_signals:
+      extrinsic:
+        gamma: 0.99
+        strength: 1.0
+    keep_checkpoints: 5
+    max_steps: 10000000  # Больше шагов для длительного обучения
+    time_horizon: 128  # Увеличено для лучшего учета долгосрочных последствий
+    summary_freq: 100  # Реже сохранять сводки, чтобы снизить нагрузку на диск
+
